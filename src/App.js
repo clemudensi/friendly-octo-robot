@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes, useNavigate} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Entities from './components/Entities'
@@ -7,7 +7,7 @@ import AddEntity from './components/AddEntity'
 import Login from './components/Login'
 
 const App = () => {
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
   // const history = useHistory()
   const [showAddEntity, setShowAddEntity] = useState(false)
   const [entities, setEntities] = useState([])
@@ -199,6 +199,7 @@ const App = () => {
     <Router>
       <div className='container'>
         <Header
+          token={token}
           onAdd={onNewClick}
           showAdd={showAddEntity}
           admin={admin}

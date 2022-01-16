@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
 import Button from './Button'
 
-const Header = ({ title, onAdd, showAdd, admin }) => {
+const Header = ({ token, title, onAdd, showAdd, admin }) => {
   const location = useLocation()
 
   return (
@@ -16,11 +16,15 @@ const Header = ({ title, onAdd, showAdd, admin }) => {
         />
         : false
       }
-      <Button
+      {
+        token !== '' ?
+        <Button
         color={'grey'}
         text={'Logout'}
         onClick={() => onAdd()}
-      />
+      /> : ''
+      }
+      
       
     </header>
   )
